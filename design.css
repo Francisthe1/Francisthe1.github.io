@@ -41,3 +41,13 @@ h1{font-size:clamp(48px,5vw,70px)}h2{font-size:36px}h3,.small-project h3{font-si
 @media(max-width:400px){.results dt{font-size:22px}.results>div{padding:0 6px}}
 
 .background{grid-template-columns:1fr}.background>div{max-width:850px}
+
+/* Interactive contact circles; labels appear on hover and keyboard focus. */
+.topbar .contact{gap:12px;align-items:center;max-width:440px}
+.topbar .contact a{display:inline-flex;align-items:center;justify-content:flex-start;width:50px;height:50px;overflow:hidden;flex:none;border:1px solid #002d72;border-radius:999px;color:#002d72;background:#fff;text-decoration:none;white-space:nowrap;transition:width .22s ease,background-color .18s ease,color .18s ease,transform .18s ease}
+.contact-symbol{display:flex;align-items:center;justify-content:center;min-width:48px;height:48px;font:600 16px/1 Arial,sans-serif;letter-spacing:-.03em}
+.contact-label{font-size:15px;opacity:0;padding-right:18px;transition:opacity .15s ease}
+.topbar .contact a:hover,.topbar .contact a:focus-visible{width:140px;background:#002d72;color:#fff;transform:translateY(-2px)}
+.topbar .contact a:hover .contact-label,.topbar .contact a:focus-visible .contact-label{opacity:1}
+@media(hover:none){.topbar .contact a{width:auto;padding-right:14px}.contact-label{opacity:1;padding-right:0}.topbar .contact a:hover{width:auto;transform:none}}
+@media(prefers-reduced-motion:reduce){.topbar .contact a,.contact-label{transition:none}.topbar .contact a:hover,.topbar .contact a:focus-visible{transform:none}}
