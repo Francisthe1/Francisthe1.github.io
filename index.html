@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Francis Fan is a robotics master's student at Johns Hopkins working on surgical robotics, perception and autonomous manipulation.">
+  <title>Francis Fan | Robotics</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery.css">
+  <link rel="stylesheet" href="design.css">
+  <script src="gallery-data.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar wrap">
+  <a class="wordmark" href="#">Francis Fan</a>
+  <div class="contact"><a href="mailto:sfan29@jh.edu">Email</a><a href="https://github.com/Francisthe1">GitHub</a><a href="https://www.linkedin.com/in/francis-fan-aa152a21a/">LinkedIn</a><a href="Francis_Fan_CV.pdf">Download CV</a></div>
+  <nav aria-label="Main navigation"><a href="#research">Research</a><a href="#projects">Projects</a><a href="#background">Background</a><a href="Francis_Fan_CV.pdf">CV <span aria-hidden="true">↗</span></a></nav>
+</header>
+<main id="main">
+  <section class="intro wrap">
+    <div>
+      <p class="eyebrow">Johns Hopkins University · IMERSE Lab</p>
+      <h1>Francis Fan</h1>
+      <p class="lead">I develop robotic systems for surgical manipulation.</p>
+      <section class="research-interests" aria-labelledby="interests-heading"><h2 id="interests-heading">Research interests</h2><p>I want to develop autonomous manipulation policies that generalize across robots and surgical instruments. I am particularly interested in combining model-based control and imitation learning for grasping, suction, cautery, and packing, alongside designing robots and end-effectors that make these skills possible.</p><div class="interest-blocks"><span>01 / Surgical autonomy</span><span>02 / Generalizable manipulation</span><span>03 / Robot &amp; instrument design</span></div></section>
+      <p class="bio">I’m a master’s student in Robotics at Johns Hopkins, advised by <a href="https://imerse.lcsr.jhu.edu/">Professor Axel Krieger</a>. My work brings together mechanical design, computer vision, and autonomous bimanual control for surgical robots.</p>
+
+
+    </div>
+    <aside class="intro-note">
+      <img id="portrait" alt="Francis Fan" hidden>
+      <div id="intro-text"><p class="small-label">Current research</p><p>Supervised autonomous suction and cautery for bleeding control.</p><hr><p class="small-label">Mechanical engineering → robotics</p><p>Union College, B.S. 2025<br>Johns Hopkins, M.S. expected 2027</p></div>
+    </aside>
+  </section>
+
+  <section class="wrap section" id="research">
+    <div class="section-heading"><h2>Research</h2><p>IMERSE Lab · Johns Hopkins University</p></div>
+    <article class="research-project" id="bleeding-control">
+      <figure class="visual" data-photo-folder="splenic-bleeding-control" data-photo-alt="Experimental setup for supervised autonomous splenic bleeding control">
+        <div class="diagram">
+          <span class="diagram-label">System overview</span>
+          <svg viewBox="0 0 600 330" role="img" aria-label="System outline: camera feedback feeds tracking and contact detection, which inform visual servoing of suction and cautery tools.">
+            <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#527484"/></marker></defs>
+            <g fill="none" stroke="#527484" stroke-width="2" marker-end="url(#arrow)"><path d="M177 94H228"/><path d="M390 94H438"/><path d="M510 128V238H94V130"/></g>
+            <g fill="#fff" stroke="#bdd0d7"><rect x="24" y="60" width="154" height="68" rx="6"/><rect x="229" y="38" width="160" height="112" rx="6"/><rect x="439" y="60" width="140" height="68" rx="6"/></g>
+            <g fill="#213c4a" font-family="Arial,sans-serif" font-size="17" text-anchor="middle"><text x="101" y="90">Camera</text><text x="101" y="112">feedback</text><text x="309" y="77">Tool tracking</text><text x="309" y="102">Contact detection</text><text x="309" y="127">Wound segmentation</text><text x="509" y="89">Visual</text><text x="509" y="112">servoing</text></g>
+            <rect x="190" y="203" width="220" height="70" rx="6" fill="#213c4a"/><g fill="#fff" font-family="Arial,sans-serif" font-size="17" text-anchor="middle"><text x="300" y="231">Bimanual dVRK</text><text x="300" y="255">Suction + cautery</text></g>
+            <text x="300" y="309" fill="#527484" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">Conceptual control loop</text>
+          </svg>
+        </div>
+        <figcaption>Monocular visual feedback for coordinated surgical tools.</figcaption>
+      </figure>
+      <div class="project-copy"><p class="eyebrow">Surgical autonomy · Oct. 2025–present</p><h3>Supervised autonomous bleeding control</h3>
+        <p>I developed a vision-guided dVRK system for bimanual suction and cautery in splenic trauma. My contributions include tool tracking and visual servoing, an EfficientNet tool–tissue contact detector, a custom suction adaptor, and an ex vivo perfusion platform. Collaborator-developed wound segmentation is integrated into the control loop.</p>
+        <dl class="results"><div><dt>0.738</dt><dd>Mean contact F1 in five-fold validation with entire recordings held out.</dd></div><div><dt>82.9%</dt><dd>Mean surface cauterization coverage across seven ex vivo Grade I–II injuries.</dd></div></dl>
+        <p class="status">First-author manuscript submitted to ICRA 2027 · Under review</p>
+        <details><summary>Research details</summary><p>The system uses a single camera without depth estimation. I annotated approximately 100,000 training frames and extended the dVRK pipeline to record energy-tool pedal events. The experimental platform includes pulsatile perfusion, pressure monitoring, and suction loops.</p></details>
+      </div>
+    </article>
+    <article class="research-project" id="vertebroplasty">
+      <figure class="visual" data-photo-folder="robotic-vertebroplasty" data-photo-alt="Cannula-insertion end-effector for robotic vertebroplasty">
+        <div class="diagram"><span class="diagram-label">Design requirements</span><div class="requirements"><div><strong>&gt;200 N</strong><span>Insertion thrust</span></div><div><strong>&lt;6 &times; 8 cm</strong><span>Mechanism footprint</span></div><div><strong>&lt;0.1 mm</strong><span>Tip deflection predicted by FEA</span></div></div><p class="diagram-footer">Requirements and reported results</p></div>
+        <figcaption>A compact insertion mechanism designed around imaging access.</figcaption>
+      </figure>
+      <div class="project-copy"><p class="eyebrow">Medical robot development</p><h3>Robotic vertebroplasty</h3><p>I designed, manufactured, and tested a UR-mounted cannula-insertion end-effector for semi-autonomous vertebroplasty. A quasi-radiolucent modular structure and synchronized drivetrain geometry reduce obstruction during fluoroscopic imaging.</p><p>The project combines mechanical packaging, structural analysis, manufacturing, and bench testing.</p><dl class="results"><div><dt>&gt;200 N</dt><dd>Insertion thrust.</dd></div><div><dt>&lt;6 &times; 8 cm</dt><dd>Mechanism footprint.</dd></div><div><dt>&lt;0.1 mm</dt><dd>Tip deflection predicted by ANSYS FEA.</dd></div></dl><p class="fine">IMERSE Lab · ARPA-H-funded project</p></div>
+    </article>
+    <div class="manuscript"><p class="small-label">Manuscript under review</p><p><strong>Francis Fan</strong> et al. Supervised Autonomous Bimanual Suction and Cauterization for Bleeding Control in Low Grade Splenic Trauma.</p><p class="fine">Submitted to ICRA 2027, September 2026.</p></div>
+  </section>
+
+  <section class="wrap section" id="projects"><div class="section-heading"><h2>Other projects</h2><p>Devices, perception, and engineering</p></div>
+    <div class="project-list">
+<article class="small-project" data-optional-photo="ct-to-mri"><div><p class="eyebrow">Graduate course project · Spring 2026</p><h3>CT-to-MRI translation</h3></div><div><p>Compared adversarial image-translation approaches and trained a ResNet34 U-Net with adversarial, pixel-wise, and structural-similarity losses.</p><dl class="results"><div><dt>0.865</dt><dd>SSIM</dd></div><div><dt>24.08 dB</dt><dd>PSNR</dd></div><div><dt>0.0287</dt><dd>MAE</dd></div></dl><p class="fine">PatchGAN paired CT-to-MRI validation results on SynthRAD2023 at epoch 50; 80-patient subset with an 80/20 slice split. Course-project evaluation.</p></div></article>
+<article class="small-project" data-optional-photo="intracranial-hemorrhage-detection"><div><p class="eyebrow">Graduate course project · Spring 2026</p><h3>Intracranial hemorrhage detection</h3></div><div><p>Compared classical computer vision, an RBF-kernel SVM, and a ResNet-18 on 6,772 head CT slices. Developed a 19-feature representation for the SVM.</p><dl class="results"><div><dt>89.8%</dt><dd>Slice accuracy</dd></div><div><dt>82.04%</dt><dd>Hemorrhage sensitivity</dd></div><div><dt>94.88%</dt><dd>Normal specificity</dd></div></dl><p class="fine">Reported RBF-SVM slice-level results from the course-project evaluation.</p></div></article>
+<article class="small-project" data-optional-photo="therapeutic-focused-ultrasound"><div><p class="eyebrow">HEPIUS Innovation Lab · 2026</p><h3>Focused-ultrasound transducers</h3></div><div><p>Fabricated transducers for neuromodulation using cleanroom processes, then characterized them with 3D hydrophone scanning and in vitro models. I also managed laboratory operations for five researchers.</p></div></article>
+<article class="small-project" data-optional-photo="sae-baja"><div><p class="eyebrow">Union College · 2023–2025</p><h3>SAE Baja drivetrain</h3></div><div><p>Designed and analyzed drivetrain chain tensioners and competed as an endurance driver, completing more than 200 race miles without mechanical failure.</p></div></article>
+<article class="small-project" data-optional-photo="pingpong-retriever"><div><p class="eyebrow">Union College &middot; Spring 2025</p><h3>Autonomous ping-pong ball retriever</h3></div><div><p>Our team built a single-camera robot that navigates its playing field, locates and collects ping-pong balls, and uses computer vision to return them to an elevator tower that launches the balls to players.</p><p>I designed the chassis in CAD, configured the electronics, and built the playing field using laser cutting and other fabrication methods.</p></div></article>
+<article class="small-project" data-optional-photo="inchworm-rope-climber"><div><p class="eyebrow">Union College &middot; Spring 2025</p><h3>Inchworm rope-climbing robot</h3></div><div><p>Our team built an eight-motor, remotely controlled robot that travels along a suspended string and transfers midair to another string positioned just below it.</p><p>I designed the jaw-opening mechanism, simulated deformation during motion, and manufactured the chassis.</p></div></article>
+    </div>
+  </section>
+
+  <section class="wrap section"><details class="earlier-projects"><summary>Earlier engineering: rockets and aerogels</summary>
+    <article class="small-project" data-optional-photo="rocket-club"><div><p class="eyebrow">Union College · 2022–2023</p><h3>Rocket Club</h3></div><div><p>As club president, I led the team that designed and built a 3-foot rocket and managed the club budget.</p></div></article>
+    <article class="small-project" data-optional-photo="aerogels-sunthru"><div><p class="eyebrow">Union College / SUNTHRU · 2023–2025</p><h3>Aerogel research and tooling</h3></div><div><p>My undergraduate research explored additive manufacturing and rapid supercritical extraction of silica aerogels. At SUNTHRU, I worked on mechanical tooling and process improvements for aerogel production.</p></div></article>
+  </details></section>
+  <section class="wrap section background" id="background"><div><h2>Background</h2><p>I earned my B.S. in Mechanical Engineering from Union College in 2025, graduating cum laude with department honors. I’m completing my M.S. in Robotics at Johns Hopkins, with graduation expected in May 2027.</p><p>I work with Python, C++, ROS 2, dVRK, PyTorch, OpenCV, SolidWorks, and ANSYS, alongside hands-on manufacturing and experimental instrumentation.</p></div></section>
+</main>
+<footer class="wrap"><span>Francis Fan</span><span>Research details updated November 2026</span><a href="#main">Back to top ↑</a></footer>
+<dialog id="image-viewer" aria-label="Enlarged project image"><button type="button" class="viewer-close" aria-label="Close enlarged image">Close ×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>
+</body>
+</html>
