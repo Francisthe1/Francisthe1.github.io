@@ -23,3 +23,18 @@ function buildGallery(folder){
 document.querySelectorAll('[data-photo-folder]').forEach(figure=>{const gallery=buildGallery(figure.dataset.photoFolder);if(gallery)figure.replaceChildren(gallery);});
 document.querySelectorAll('[data-optional-photo]').forEach(project=>{const gallery=buildGallery(project.dataset.optionalPhoto);if(gallery){gallery.classList.add('project-media');project.append(gallery);}});
 if(media.profile?.length){const portrait=document.getElementById('portrait');portrait.src=media.profile[0].src;portrait.hidden=false;document.getElementById('intro-text').hidden=true;}
+
+// Mark the section currently being read in the persistent navigation.
+const sectionLinks=[...document.querySelectorAll('nav a[href^="#"]')];
+const navSections=sectionLinks.map(link=>({link,section:document.querySelector(link.getAttribute('href'))})).filter(item=>item.section);
+let navFramePending=false;
+function updateSectionMarker(){
+ const readingLine=Math.min(window.innerHeight*.3,220);
+ let current=null;
+ for(const item of navSections){if(item.section.getBoundingClientRect().top<=readingLine)current=item;}
+ if(window.scrollY>0&&window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)current=navSections.at(-1);
+ for(const item of navSections){const active=item===current;item.link.classList.toggle('is-active',active);if(active)item.link.setAttribute('aria-current','location');else item.link.removeAttribute('aria-current');}
+ navFramePending=false;
+}
+function scheduleSectionMarker(){if(!navFramePending){navFramePending=true;requestAnimationFrame(updateSectionMarker);}}
+window.addEventListener('scroll',scheduleSectionMarker,{passive:true});window.addEventListener('resize',scheduleSectionMarker);window.addEventListener('load',scheduleSectionMarker);window.addEventListener('hashchange',scheduleSectionMarker);updateSectionMarker();
